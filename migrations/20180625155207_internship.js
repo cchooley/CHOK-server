@@ -9,6 +9,7 @@ exports.up = function(knex, Promise) {
         table.boolean('paid')
         table.text('feedback')
         table.string('location')
+        table.text('internshipOffered')
     })
 };
 
