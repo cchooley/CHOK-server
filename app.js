@@ -31,6 +31,8 @@ app.use(function(err, req, res, next) {
 });
 
 const port = process.env.PORT || 5000
-app.listen(process.env.PORT || port)
+app.listen(port, () => {
+  console.log(`Listening on ${port}`)
+})
 
 module.exports = app;
