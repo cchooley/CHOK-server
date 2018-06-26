@@ -8,7 +8,7 @@ module.exports = {
        return database('internship').select().where('id', id).first()
    },
    create(internship) {
-       return database('internship').insert(internship).returning('*').then(record => record[0])
+    return database('internship').insert(internship).returning('*').then(record => record[0])
    },
    update(id, internship) {
        return database('internship').where('id', id).update(internship, '*').then(record => record[0])

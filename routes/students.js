@@ -20,7 +20,7 @@ router.get('/:id', (request, response, next) => {
 
 router.post('/', (request, response, next) => {
   queries.create(request.body).then(student => {
-    response.status(201).json({ student: student })
+    response.status(201).json({ student })
   }).catch(next)
 })
 
@@ -31,6 +31,8 @@ router.delete('/:id', (request, response, next) => {
 })
 
 router.put('/:id', (request, response, next) => {
+  console.log(request.params.id)
+  console.log(request.body)
   queries.update(request.params.id, request.body).then(student => {
     response.json({ student: student[0] })
   }).catch(next)

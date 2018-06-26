@@ -1,12 +1,14 @@
 var express = require('express');
 var cors = require('cors');
 var morgan = require('morgan')
+var bodyParser = require('body-parser')
 
 var app = express();
 
 const internships = require('./routes/internships')
 const students = require('./routes/students')
 
+app.use(bodyParser.json())
 app.use(morgan('dev'))
 app.use(cors())
 

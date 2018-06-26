@@ -11,7 +11,8 @@ module.exports = {
        return database('student').insert(student).returning('*').then(record => record[0])
    },
    update(id, student) {
-       return database('student').where('id', id).update(student, '*').then(record => record[0])
+       console.log(id, student)
+       return database('student').where('id', id).update(student, '*')
    },
    delete(id) {
        return database('student').where('id', id).del()
