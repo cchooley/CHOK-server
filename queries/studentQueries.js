@@ -1,4 +1,5 @@
 const database = require("../database-connection");
+const authUtils = require('../utils/auth')
 
 module.exports = {
     list() {
@@ -10,7 +11,8 @@ module.exports = {
     readByEmail(email) {
         return database('student').select().where('email', email).first()
     },
-    create(student) {
+    create(student, password) {
+        student.password = authUtils.hashPassword(password)
        return database('student').insert(student).returning('*').then(record => record[0])
     },
     update(id, student) {
