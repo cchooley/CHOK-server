@@ -1,3 +1,4 @@
+const authUtils = require('../utils/auth')
 
 exports.seed = function(knex, Promise) {
   // Deletes ALL existing entries
@@ -10,7 +11,7 @@ exports.seed = function(knex, Promise) {
           picture: 'https://files.slack.com/files-pri/T1T555TL0-FBDKT8A9W/21833_1280477406589_1878666_n.jpg',
           school: 'Rock Canyon High School',
           email: 'hlzulkoski@gmail.com',
-          password: '1234password',
+          password: authUtils.hashPassword('1234password'),
           interests: 'theater',
           hours: 0
         },
@@ -19,7 +20,7 @@ exports.seed = function(knex, Promise) {
           picture: 'https://ibb.co/cgOKC8',
           school: 'Wheat Ridge High School',
           email: 'cchooley@gmail.com',
-          password: 'chromedome420lol',
+          password: authUtils.hashPassword('chromedome420lol'),
           interests: 'music',
           hours: 0
         },
@@ -37,10 +38,10 @@ exports.seed = function(knex, Promise) {
           picture: '',
           school: 'Çaglayan High School',
           email: 'ondergunacan@gmail.com',
-          password: 'iloveturkey123',
+          password: authUtils.hashPassword('iloveturkey123'),
           interests: 'communications',
           hours: 0
-        },        
+        }
       ]);
     });
 };

@@ -7,6 +7,7 @@ var app = express();
 
 const internships = require('./routes/internships')
 const students = require('./routes/students')
+const auth = require('./routes/auth')
 
 app.use(bodyParser.json())
 app.use(morgan('dev'))
@@ -20,6 +21,7 @@ app.get('/', (req, res) => {
 
 app.use('/internships', internships)
 app.use('/students', students)
+app.use('/auth', auth)
 
 // error handler
 app.use(function(err, req, res, next) {
