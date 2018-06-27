@@ -3,6 +3,21 @@ var router = express.Router();
 
 const queries = require('../queries/studentQueries')
 
+function validPost(student) {
+  const validName = typeof student.name == 'string' && student.name.trim() != ''
+  const validEmail = typeof student.email == 'string' 
+    && student.email.includes('@')
+    && student.email.includes('.')
+  const validPicture = typeof student.picture == 'string'
+    && (student.picture.includes('.jpg')
+    || student.picture.includes('.gif')
+    || student.picture.includes('.png'))
+  const validSchool = typeof student.school == 'string' && student.school.trim() != ''
+  const validPw = typeof student.school == 'string' && student.password.length >= 6
+  const validInterests = typeof typeof student.interests == 'string' && student.interests.trim() != ''
+
+  return validName && validEmail && validPicture && validSchool && validPw && validInterests
+}
 
 router.get('/', function(request, response, next) {
   queries.list().then(students => {
@@ -18,10 +33,17 @@ router.get('/:id', (request, response, next) => {
   }).catch(next)
 })
 
+router.get('/:id/internship', (req, res, next) => {
+})
+
 router.post('/', (request, response, next) => {
-  queries.create(request.body).then(student => {
-    response.status(201).json({ student })
-  }).catch(next)
+  if (validPost(request.body)) {
+    queries.create(request.body).then(student => {
+      response.status(201).json({ student })
+    }).catch(next)
+  } else {
+    response.json({ error: "That did not work" })
+  }
 })
 
 router.delete('/:id', (request, response, next) => {

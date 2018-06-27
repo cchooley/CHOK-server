@@ -9,6 +9,11 @@ exports.up = function(knex, Promise) {
         table.string('password')
         table.string('interests')
         table.float('hours')
+        table.integer('internship_id')
+            .notNullable()
+            .references('id')
+            .inTable('internship')
+            .index()
     })
 };
 

@@ -5,6 +5,7 @@ exports.up = function(knex, Promise) {
         table.string('website')
         table.string('logo')
         table.text('description')
+        table.text('internshipType')
         table.integer('hours')
         table.boolean('paid')
         table.text('feedback')
