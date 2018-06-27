@@ -20,7 +20,8 @@ router.post('/login', function (req, res, next) {
             const passwordMatch = authUtils.comparePassword(req.body.password, student.password)
             // If student exists, check password
             if (passwordMatch) {
-                res.json({ message: 'login successful' })
+                const token = authUtils.createJWT(student)
+                res.json({token});
             } else {
                 res.json({ error: 'Incorrect password' })
             }
