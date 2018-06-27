@@ -11,8 +11,8 @@ module.exports = {
     readByEmail(email) {
         return database('student').select().where('email', email).first()
     },
-    create(student, password) {
-        student.password = authUtils.hashPassword(password)
+    create(student) {
+        student.password = authUtils.hashPassword(student.password)
        return database('student').insert(student).returning('*').then(record => record[0])
     },
     update(id, student) {
