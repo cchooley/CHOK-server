@@ -7,7 +7,7 @@ const authUtils = require('../utils/auth')
 router.post('/login', function (req, res, next) {
     console.log(req.body)
 
-    studentQueries.readByName(req.body.name)
+    studentQueries.readByEmail(req.body.email)
         .then(student => {
             // If student does not exist, return error
             if (!student) {
