@@ -17,8 +17,8 @@ exports.seed = function(knex, Promise) {
         },
         {
           name: 'Denver Fire Department',
-          website: 'https://www.denvergov.org/content/denvergov/en/fire-department-home.html',
-          logo: 'https://ibb.co/ifrpUo',
+          website: 'https://www.denvergov.org',
+          logo: 'https://denverfd.com/wp-content/themes/msestemp1/images/Main-Logo.png',
           description: 'The Intern will assist and work alongside the Senior Physical Therapist and Wellness Coordinator. The intern will earn experience in all aspects of physical therapy and fitness field while being emerged in the fire department culture.',
           hours: 25,
           paid: false,
