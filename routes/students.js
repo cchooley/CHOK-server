@@ -35,13 +35,13 @@ router.get('/:id', (request, response, next) => {
 })
 
 router.post('/', (request, response, next) => {
-  if (validPost(request.body)) {
+//  if (validPost(request.body)) {
     queries.create(request.body).then(student => {
       response.status(201).json({ student })
     }).catch(next)
-  } else {
-    response.json({ error: "That did not work" })
-  }
+//  } else {
+//    response.json({ error: "That did not work" })
+//  }
 })
 
 router.delete('/:id', (request, response, next) => {
