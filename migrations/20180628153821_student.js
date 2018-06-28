@@ -6,7 +6,6 @@ exports.up = function (knex, Promise) {
         table.text('school')
         table.string('email')
         table.string('password')
-        table.string('interests')
         table.float('hours')
         table.integer('internship_id')
             .notNullable()

@@ -13,7 +13,6 @@ exports.seed = function(knex, Promise) {
           school: 'Rock Canyon High School',
           email: 'hlzulkoski@gmail.com',
           password: authUtils.hashPassword('1234password'),
-          interests: 'theater',
           hours: 0,
           internship_id: 1
         },
@@ -24,7 +23,6 @@ exports.seed = function(knex, Promise) {
           school: 'Wheat Ridge High School',
           email: 'cchooley@gmail.com',
           password: authUtils.hashPassword('chromedome420lol'),
-          interests: 'music',
           hours: 0,
           internship_id: 1
         },
@@ -35,7 +33,6 @@ exports.seed = function(knex, Promise) {
           school: '',
           email: '',
           password: '',
-          interests: '',
           hours: 0,
           internship_id: 2
         },
@@ -46,7 +43,6 @@ exports.seed = function(knex, Promise) {
           school: 'Çaglayan High School',
           email: 'ondergunacan@gmail.com',
           password: authUtils.hashPassword('iloveturkey123'),
-          interests: 'communications',
           hours: 0,
           internship_id: 2
         }
