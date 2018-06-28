@@ -5,6 +5,7 @@ exports.seed = function(knex, Promise) {
       // Inserts seed entries
       return knex('internship').insert([
         {
+          id: 1,
           name: 'CDOT',
           website: 'https://www.codot.gov/',
           logo: 'http://pagetwo.completecolorado.com//wp-content/uploads/2015/04/CDOTLogo.png',
@@ -16,6 +17,7 @@ exports.seed = function(knex, Promise) {
           internshipOffered: ''
         },
         {
+          id: 2,
           name: 'Denver Fire Department',
           website: 'https://www.denvergov.org',
           logo: 'https://denverfd.com/wp-content/themes/msestemp1/images/Main-Logo.png',
@@ -27,5 +29,7 @@ exports.seed = function(knex, Promise) {
           internshipOffered: ''
         }
       ]);
+    }).then(() => {
+      return knex.raw("ALTER SEQUENCE internship_id_seq RESTART WITH 3;");
     });
-};
+  };

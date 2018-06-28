@@ -1,5 +1,6 @@
 var express = require('express');
 var router = express.Router();
+const knex = require('knex')
 
 const queries = require('../queries/studentQueries')
 
@@ -34,6 +35,13 @@ router.get('/:id', (request, response, next) => {
 })
 
 router.get('/:id/internship', (req, res, next) => {
+  knex('internship')
+    .innerJoin('student', 'internship.id', 'student.internship_id')
+    .where('internship.id', req.params.id)
+    .then(result => res.json(result))
+    .catch((err) => {
+      next(err)
+  })
 })
 
 router.post('/', (request, response, next) => {
