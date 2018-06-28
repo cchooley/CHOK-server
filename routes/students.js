@@ -5,7 +5,7 @@ const knex = require('knex')
 const queries = require('../queries/studentQueries')
 
 function validPost(student) {
-  const validName = typeof student.name == 'string' && student.name.trim() != ''
+  const validName = typeof student.name == 'string'
   const validEmail = typeof student.email == 'string' 
     && student.email.includes('@')
     && student.email.includes('.')
@@ -13,9 +13,9 @@ function validPost(student) {
     && (student.picture.includes('.jpg')
     || student.picture.includes('.gif')
     || student.picture.includes('.png'))
-  const validSchool = typeof student.school == 'string' && student.school.trim() != ''
+  const validSchool = typeof student.school == 'string'
   const validPw = typeof student.school == 'string' && student.password.length >= 6
-  const validInterests = typeof typeof student.interests == 'string' && student.interests.trim() != ''
+  const validInterests = typeof typeof student.interests == 'string'
 
   return validName && validEmail && validPicture && validSchool && validPw && validInterests
 }
