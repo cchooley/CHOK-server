@@ -1,5 +1,6 @@
 var express = require('express');
 var router = express.Router();
+var knex = require('knex');
 
 const queries = require('../queries/internQueries')
 
@@ -14,6 +15,14 @@ router.get('/:id', (request, response, next) => {
   queries.read(request.params.id).then(internship => {
     internship
       ? response.json ({ internship })
+      : response.status(404).json({ message: 'Not Found' })
+  }).catch(next)
+})
+
+router.get('/:id/students', (request, response, next) => {
+  queries.readInternship(request.params.id).then(students => {
+    students
+      ? response.json ({ students })
       : response.status(404).json({ message: 'Not Found' })
   }).catch(next)
 })

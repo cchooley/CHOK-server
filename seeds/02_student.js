@@ -13,7 +13,8 @@ exports.seed = function(knex, Promise) {
           email: 'hlzulkoski@gmail.com',
           password: authUtils.hashPassword('1234password'),
           interests: 'theater',
-          hours: 0
+          hours: 0,
+          internship_id: 1
         },
         {
           name: 'Conor Hooley',
@@ -22,7 +23,8 @@ exports.seed = function(knex, Promise) {
           email: 'cchooley@gmail.com',
           password: authUtils.hashPassword('chromedome420lol'),
           interests: 'music',
-          hours: 0
+          hours: 0,
+          internship_id: 1
         },
         {
           name: 'Kyle Kuberra',
@@ -31,7 +33,8 @@ exports.seed = function(knex, Promise) {
           email: '',
           password: '',
           interests: '',
-          hours: 0
+          hours: 0,
+          internship_id: 1
         },
         {
           name: 'Onder Gunacan',
@@ -40,7 +43,8 @@ exports.seed = function(knex, Promise) {
           email: 'ondergunacan@gmail.com',
           password: authUtils.hashPassword('iloveturkey123'),
           interests: 'communications',
-          hours: 0
+          hours: 0,
+          internship_id: 1
         }
       ]);
     });

@@ -33,9 +33,6 @@ router.get('/:id', (request, response, next) => {
   }).catch(next)
 })
 
-router.get('/:id/internship', (req, res, next) => {
-})
-
 router.post('/', (request, response, next) => {
   if (validPost(request.body)) {
     queries.create(request.body).then(student => {
