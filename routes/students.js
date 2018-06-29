@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-const knex = require('knex')
+const authUtils = require('../utils/auth')
 
 const queries = require('../queries/studentQueries')
 
@@ -37,6 +37,9 @@ router.get('/:id', (request, response, next) => {
 router.post('/', (request, response, next) => {
 //  if (validPost(request.body)) {
     queries.create(request.body).then(student => {
+      const token = authUtils.createJWT(student)
+      console.log(token)
+      response.json({ token });
       response.status(201).json({ student })
     }).catch(next)
 //  } else {

@@ -4,9 +4,8 @@ var router = express.Router();
 const studentQueries = require('../queries/studentQueries')
 const authUtils = require('../utils/auth')
 
-router.post('/login', function (req, res, next) {
-    console.log(req.body)
 
+router.post('/login', function (req, res, next) {
     studentQueries.readByEmail(req.body.email)
         .then(student => {
             // If student does not exist, return error
@@ -29,7 +28,20 @@ router.post('/login', function (req, res, next) {
 });
 
 router.post('/signup', function (req, res, next) {
-    res.json({ message: 'signup successful' });
-});
+    studentQueries.create(req.body)
+        .then(studentQueries.readByEmail(req.body.email))
+        .then(student => {
+            console.log(student)
+            const passwordMatch = authUtils.comparePassword(req.body.password, student.password)
+            // If student exists, check password
+            if (passwordMatch) {
+                const token = authUtils.createJWT(student)
+                res.json({ token });
+            } else {
+                res.json({ error: 'Incorrect password' })
+            }
+        })
+    }
+);
 
 module.exports = router;
