@@ -40,6 +40,7 @@ router.post('/', (request, response, next) => {
       const token = authUtils.createJWT(student)
       console.log(token)
       response.json({ token });
+      response.json({ student })
       response.status(201).json({ student })
     }).catch(next)
 //  } else {
