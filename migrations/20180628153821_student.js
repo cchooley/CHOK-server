@@ -8,7 +8,6 @@ exports.up = function (knex, Promise) {
         table.string('password')
         table.float('hours')
         table.integer('internship_id')
-            .notNullable()
             .references('id')
             .inTable('internship')
             .index()
